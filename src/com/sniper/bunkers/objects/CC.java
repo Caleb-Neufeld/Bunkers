@@ -7,6 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import com.sniper.bunkers.Core;
+import com.sniper.bunkers.managers.combat.CombatTag;
+import com.sniper.bunkers.scoreboard.Time;
+import com.sniper.bunkers.teams.TeamManager;
 
 public class CC {
 	
@@ -21,18 +24,24 @@ public class CC {
 		return this;
 	}
 	
-	public CC variables(Player player) {
+	public CC variables(Player player, Player victim) {
 		HashMap<String, String> variables = new HashMap<>();
 		variables.put("<gt>", "");
 		variables.put("<kt>", "");
-		variables.put("<b>", "");
-		variables.put("<d>", "");
+		variables.put("<b>", String.valueOf(Economy.get(player)));
+		variables.put("<d>", String.valueOf(TeamManager.getDTR(TeamManager.getPlayersTeam(player))));
 		variables.put("<tc>", "");
 		variables.put("<tn>", "");
+		variables.put("<v>", (victim == null ? "NOT AVAILABLE" : victim.getName()));
+		variables.put("<ct>", Time.IntegerTime.setMSFormat(Time.IntegerTime.convertMillisecondsToSeconds(CombatTag.getCombatMillis(player))));
 		for(Entry<String, String> variable : variables.entrySet()) {
 			text = text.replaceAll(variable.getKey(), variable.getValue());
 		}
 		return this;
+	}
+	
+	public CC variables(Player victim) {
+		return variables(null, victim);
 	}
 	
 	public CC fromConfig() {

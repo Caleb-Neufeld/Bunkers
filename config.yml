@@ -5,13 +5,14 @@
 # kt = koth time
 # 
 # b = balance
+# ct = combat tag
 # 
 # d = dtr
 # 
 # tc = team color
 # tn = team name
 # 
-# 
+# v = victim
 # 
 # 
 
@@ -29,5 +30,14 @@ Team Colors:
   Yellow: 'e'
   Blue: '9'
 
+Messages:
+  ENTER_CLAIM: '&eEntering &<tc><tn>'
+  PLAYER_SAME_TEAM: '&eYou can not damage <v>.'
+  COMBAT_TAG: '&cYou are now in combat tag for 45 seconds.'
+  COMBAT_TAGGED: '&cYou have been combat tagged for 45 seconds.'
+
 Claims:
   - "Green:0:0:10:10"
+
+Combat:
+  COMBAT_TIME: 45

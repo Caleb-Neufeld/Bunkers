@@ -8,7 +8,7 @@ public class ClaimsManager {
 		int x = (int)location.getX();
 		int y = (int)location.getY();
 		int z = (int)location.getZ();
-		if()
+		
 	}
 
 }

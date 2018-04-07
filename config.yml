@@ -1,0 +1,30 @@
+#Global Variables
+# all variables are closed in <>, example: <d>
+#
+# gt = game time
+# kt = koth time
+# 
+# b = balance
+# 
+# d = dtr
+# 
+# tc = team color
+# tn = team name
+# 
+# 
+# 
+# 
+
+Scoreboard:
+  TITLE: '&6&lBunkers'
+  BARS: '&8&m-------------------'
+  LINES:
+    - '&eGame Time: &f<gc>'
+    - '&eTeam: &<tc><tn>'
+
+Team Colors:
+  #team color code
+  Green: 'a'
+  Red: 'c'
+  Yellow: 'e'
+  Blue: '9'

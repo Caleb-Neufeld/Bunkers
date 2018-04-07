@@ -17,17 +17,20 @@ public class ClaimsManager {
 			String[] format = string.split(":");
 			String team = format[0], xS = format[1], zS = format[2];
 			int xF = Integer.valueOf(xS), zF = Integer.valueOf(zS);
-			registeredClaims.add(new Claim(Team.valueOf(team), x, z));
+			//registeredClaims.add(new Claim(Team.valueOf(team), x, z));
 		}
 	}
 	
-	public static Team getClaimAt(Location location) {
+	public static Team getOwnerAt(Location location) {
 		int x = (int)location.getX();
 		//int y = (int)location.getY();
 		int z = (int)location.getZ();
 		for(Claim claim : registeredClaims) {
-			
+			if(location.getX() >= claim.getPos1().x() && location.getX() <= claim.getPos2().x() && location.getZ() >= claim.getPos1().z() && location.getZ() <= claim.getPos2().z()) {
+				return claim.getOwner();
+			}
 		}
+		return null;
 	}
 	
 

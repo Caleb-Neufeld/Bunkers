@@ -6,6 +6,8 @@ import java.util.Map.Entry;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import com.sniper.bunkers.Core;
+
 public class CC {
 	
 	private String text;
@@ -30,6 +32,11 @@ public class CC {
 		for(Entry<String, String> variable : variables.entrySet()) {
 			text = text.replaceAll(variable.getKey(), variable.getValue());
 		}
+		return this;
+	}
+	
+	public CC fromConfig() {
+		text = Core.getInstance().getConfig().getString(text);
 		return this;
 	}
 	

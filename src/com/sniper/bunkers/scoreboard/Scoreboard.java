@@ -7,7 +7,6 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfigurationOptions;
-import org.bukkit.craftbukkit.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -81,7 +80,7 @@ public class Scoreboard implements Listener {
 					helper.update(player);
 				}
 			}
-		}.runTaskTimer(Main.getInstance(),1L,1L);
+		}.runTaskTimer(Core.getInstance(),1L,1L);
 
 	}
 
@@ -101,7 +100,7 @@ public class Scoreboard implements Listener {
 					scoreboardHelperMap.put(p, sch);
 				}
 			}
-		}.runTaskLater(Main.getInstance(), 20L);
+		}.runTaskLater(Core.getInstance(), 20L);
 	}
 
 	@EventHandler
@@ -121,7 +120,7 @@ public class Scoreboard implements Listener {
 	}
 
 	public FileConfigurationOptions getFileConfigurationOptions() {
-		return Main.getInstance().getConfig().options();
+		return Core.getInstance().getConfig().options();
 	}
 
 	public PluginManager getPluginManager() {
@@ -129,8 +128,8 @@ public class Scoreboard implements Listener {
 	}
 
 	public String getString(String paramString) {
-		if (Main.getInstance().getConfig().contains(paramString)) {
-			return Chat.translateColors(Main.getInstance().getConfig().getString(paramString));
+		if (Core.getInstance().getConfig().contains(paramString)) {
+			return Chat.translateColors(Core.getInstance().getConfig().getString(paramString));
 		}
 		return Chat.translateColors("&eWe couldn't find the string located in &6" + paramString + "&e.");
 	}
